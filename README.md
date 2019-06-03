@@ -36,6 +36,8 @@ We used TF-IDF and a Random Forest Classifier to come up with a baseline model. 
 ### Reviewers
 We selected to look at only the top three reviewers, based on the reviews we scraped.  These three reviewers produced over 80% of the reviews in our "functional" dataset.  
 
+![stars](https://user-images.githubusercontent.com/42282874/58827390-eb7dce00-8610-11e9-99d7-f8177cb5e22d.png)
+
 **Pete Wells:**
 - 304 Reviews
 - 09/2009 - Present
