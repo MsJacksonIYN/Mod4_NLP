@@ -65,7 +65,6 @@ We tested several methods for assessing the polarity of the articles. VADER, sin
 ```
 Hanon, a new udon shop in Williamsburg, Brooklyn, was produced by the union of a Tokyo video-production company and a Japanese manufacturer of unusually thin condoms.
 {'neg': 0.0, 'neu': 1.0, 'pos': 0.0, 'compound': 0.0}
-```
 
 The condoms became the subject of a series of advertisements on which the production company worked; in one of them, called “Acts of Love,” dancers in London re-enact, with surprising grace and dignity, the mating rituals of blue-footed boobies, fiddler crabs and other animals.
 {'neg': 0.0, 'neu': 0.84, 'pos': 0.16, 'compound': 0.765}
@@ -102,7 +101,7 @@ The resulting noodle is called zenryufun or whole wheat.
 
 The bran and germ are Mr. Yanagisawa’s attempts to make a more healthful udon, but they also add flavor, a mottled color and a slightly rough texture that holds on to the dashi-based broth.
 {'neg': 0.0, 'neu': 1.0, 'pos': 0.0, 'compound': 0.0}
-
+```
 
 ![Polarity](/png_files/polarity_scoring.png)
 
