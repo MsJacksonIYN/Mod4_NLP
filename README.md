@@ -1,5 +1,5 @@
 # NYT Restaurant Reviews
-Mod 4 NLP partner project
+Mod 4 NLP partner project <br/>
 By: Sam Jackson and Maks Pazuniak
 
 ## Project Goals
@@ -27,7 +27,7 @@ We then scraped each review URL for restaurant review, headline, and any feature
 
 **Target:**
 - Star Rating: Number of stars given to a restaurant by a reviewer. <br/>
-Note: We assumed any review labeled 'Poor', 'Satisfactory', or 'Good' were given 0 stars.  Due to scarcity, we grouped reviews with 3 or 4 stars into one category (labeled 3 stars). These assumptions may have contributed to the difficulties we faced in classifying review rating.
+*Note: We assumed any review labeled 'Poor', 'Satisfactory', or 'Good' were given 0 stars.  Due to scarcity, we grouped reviews with 3 or 4 stars into one category (labeled 3 stars). These assumptions may have contributed to the difficulties we faced in classifying review rating.*
 
 ## Baseline Models
 We used TF-IDF and a Random Forest Classifier to come up with a baseline model.  Our baseline had an test-accuracy of .4805.
