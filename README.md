@@ -83,4 +83,5 @@ We have so much more work we'd like to do on this project! The power of NLP is i
 - Topic Modeling: do certain cuisines, dishes, ambiance, decor, location, etc impact the star-rating
 - More work/implementation of most important words as features:
 
-![important words](/png_files/ImportantWords.png)
+<img width="739" alt="Screen Shot 2019-06-03 at 3 30 23 PM" src="https://user-images.githubusercontent.com/42282874/58828936-8deb8080-8614-11e9-86a5-c72150a780d8.png">
+
