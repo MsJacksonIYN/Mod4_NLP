@@ -59,9 +59,13 @@ We selected to look at only the top three reviewers, based on the reviews we scr
 ![Reviewers](/png_files/RatingsByReviewer.png)
 
 ### Sentiment Analysis 
-We tested several methods for assessing the polarity of the articles. VADER, since it was trained on & built for Twitter-style text (short document length, caps and punctuation to boost sentiment, emojis, etc), we found that it didn't detect the sentiment of a NYT article as well as some other lexicons, such as TextBlob and Afinn.  We tested models using both TextBlob and Afinn sentiment analysis.  Below, you can see that Afinn is slightly more consistent than TextBlob with expectations - median sentiment increases with star rating. With all models, we evaluated sentiment on a sentence-by-sentence basis, utilizing the average of each review for our final score.
+We tested several methods for assessing the polarity of the articles. VADER, since it was trained on & built for Twitter-style text (short document length, caps and punctuation to boost sentiment, emojis, etc), we found that it didn't detect the sentiment of a NYT article as well as some other lexicons, such as TextBlob and Afinn.  We tested models using both TextBlob and Afinn sentiment analysis.  Below, you can see that Afinn is slightly more consistent than TextBlob with expectations - median sentiment increases with star rating. 
 
-### Sample VADER Sentiment Output
+![Polarity](/png_files/polarity_scoring.png)
+
+With all models, we evaluated sentiment on a sentence-by-sentence basis, utilizing the average of each review for our final score.
+
+#### Sample VADER Sentiment Output 
 ```
 Hanon, a new udon shop in Williamsburg, Brooklyn, was produced by the union of a Tokyo video-production company and a Japanese manufacturer of unusually thin condoms.
 {'neg': 0.0, 'neu': 1.0, 'pos': 0.0, 'compound': 0.0}
@@ -102,10 +106,50 @@ The resulting noodle is called zenryufun or whole wheat.
 The bran and germ are Mr. Yanagisawa’s attempts to make a more healthful udon, but they also add flavor, a mottled color and a slightly rough texture that holds on to the dashi-based broth.
 {'neg': 0.0, 'neu': 1.0, 'pos': 0.0, 'compound': 0.0}
 ```
+#### Sample Afinn Sentiment Output
+```
+Hanon, a new udon shop in Williamsburg, Brooklyn, was produced by the union of a Tokyo video-production company and a Japanese manufacturer of unusually thin condoms.
+  Afinn score: 0.0
 
-![Polarity](/png_files/polarity_scoring.png)
+The condoms became the subject of a series of advertisements on which the production company worked; in one of them, called “Acts of Love,” dancers in London re-enact, with surprising grace and dignity, the mating rituals of blue-footed boobies, fiddler crabs and other animals.
+  Afinn score: 6.0
 
-We then ran TF-IDF on the corpus of reviews, ran sentiment analysis on each n-gram, and used TF-IDF scores from the most polar (>|+/-3|) n-grams as features in our model. Below is a list of the most polar n-grams:
+Well, kids, when two companies like each other very much, sometimes they decide to create a new company together.
+  Afinn score: 2.0
+
+That is what happened with the production firm and the prophylactics people when, for reasons that are perhaps best not to question, they hit upon the idea of expanding their product line from condoms into noodles.
+  Afinn score: 3.0
+
+The restaurant lies across Union Avenue from Kellogg’s Diner.
+  Afinn score: 0.0
+
+Its door is marked during business hours by the fluttering white noren curtains.
+  Afinn score: 0.0
+
+It is the second Hanon location.
+  Afinn score: 0.0
+
+The first is about 6,700 miles away, in the city of Kamakura, which lies south of Tokyo and is known for soba, not udon.
+  Afinn score: 0.0
+
+This gave Hanon the advantage of not competing against any of Japan’s established udon styles, leaving its chef, Takahiro Yanagisawa, free to come up with his own.
+  Afinn score: 3.0
+
+Mr. Yanagisawa, who had spent 25 years making sushi before turning to noodles, focused his innovative urges on the dough.
+  Afinn score: 4.0
+
+He began by adding wheat germ and bran to the white flour that in udon is typically used alone.
+  Afinn score: -2.0
+
+The resulting noodle is called zenryufun or whole wheat.
+  Afinn score: 0.0
+
+The bran and germ are Mr. Yanagisawa’s attempts to make a more healthful udon, but they also add flavor, a mottled color and a slightly rough texture that holds on to the dashi-based broth.
+  Afinn score: 0.0
+```
+
+### Icorporating TF-IDF
+After running our sentiment analyses, we decided that finding polar words (or n-grams) within reviews may have some predictive value within our model.  We ran TF-IDF on the corpus of reviews, ran sentiment analysis on each n-gram produced by the TF-IDF Vectorizer, and used TF-IDF scores from the most polar (>|+/-3|) n-grams as features in our model. TF-IDF scores indicated how *important* these polar words were within each article, based on how many times they appeared in the article vs how many times they appeared within the whole corpus.  Below is a list of the most polar n-grams:
 
 ![PolarWords](/png_files/PolarWords.png)
 
